@@ -1,9 +1,8 @@
-#Ejercicios 10-09-2019
-#Francisco Gálvez. 2º ASIR
+#Ejercicios de Python 10-09-2019
+# Alumno: Fran Gálvez. 2º ASIR.
 
-import math, os
-import sys
-from modules import myModule, menuModule
+import math, os, sys
+from modules import operaciones, listas, menu, varios
 
 #Ejercicio 1
 def comprobar1y10():
@@ -14,14 +13,14 @@ def comprobar1y10():
             numero = int(input("\n\tIntroduce un número: "))
         except ValueError:
             print("\n\tError: introduce un número entero.")
-            myModule.pausar()
+            varios.pausar()
             continue
         else:
             if numero in range (0, 11):
                 print("\n\tEl numero " + str(numero) + " está comprendido entre 1 y 10.")
             else:
                 print("\n\tEl numero " + str(numero) + " no está comprendido entre 1 y 10.")
-        myModule.pausar()
+        varios.pausar()
         return
 
 #Ejercicio 2        
@@ -33,14 +32,14 @@ def comprobarNegativo():
             numero = int(input("\n\tIntroduce un número: "))
         except ValueError:
             print("\n\tError: introduce un número.")
-            myModule.pausar()
+            varios.pausar()
             continue
         else:
-            if(myModule.esNegativo(numero)):
+            if(operaciones.esNegativo(numero)):
                 print("\n\tEl número " + str(numero) + " es negativo.")
             else:  
                 print("\n\tEl numero " + str(numero) + " es positivo.")
-        myModule.pausar()
+        varios.pausar()
         return
 
 #Ejercicio 3
@@ -57,12 +56,12 @@ def comprobarMayor():
                 i+=1
         except ValueError:
             print("\n\tError: introduce un número.")
-            myModule.pausar()
+            varios.pausar()
             continue
         else:
-            salida = myModule.ordenarMayorMenor(numeros)
+            salida = operaciones.ordenarMayorMenor(numeros)
             print("\n\tEl número más grande es " + str(salida[0]))
-        myModule.pausar()
+        varios.pausar()
         return
 
 #Ejercicio 4
@@ -80,12 +79,12 @@ def ordenarNumeros():
                 i+=1
         except ValueError:
             print("\n\tError: introduce un número.")
-            myModule.pausar()
+            varios.pausar()
             continue
         else:
-            salida = myModule.ordenarMayorMenor(numeros)
-            print("\n\tLos números ordenados de mayor a menor son: " + str(salida))
-        myModule.pausar()
+            salida = operaciones.ordenarMayorMenor(numeros)
+            print("\n\tLos números ordenados de mayor a menor son: " + str(listas.imprimirLista(numeros)))
+        varios.pausar()
         return
 
 #Ejercicio 5
@@ -97,7 +96,7 @@ def obtenerCalificacion():
             nota = int(input("\n\tIntroduce una nota: "))
         except ValueError:
             print("\n\tError: introduce un número.")
-            myModule.pausar()
+            varios.pausar()
             continue
         else:
             if nota not in range (0,11):
@@ -115,7 +114,7 @@ def obtenerCalificacion():
                 elif nota >= 9 and nota <= 10:
                     calificacion = "sobresaliente."
                 print("\n\tUn " + str(nota) + " es un " + calificacion)
-        myModule.pausar()
+        varios.pausar()
         return
 
 #Ejercicio 6
@@ -130,8 +129,8 @@ def imprimirImpares100_200():
         impares.append(100 + (2*cont-1))
         cont += 1
         i += 1
-    print("\n\tLos números impares entre 100 y 200 son: " + str(myModule.imprimirArray(impares)))
-    myModule.pausar()
+    print("\n\tLos números impares entre 100 y 200 son: " + str(listas.imprimirLista(impares)))
+    varios.pausar()
 
 #Ejercicio 7
 def imprimirMultiplos3_1y100():
@@ -145,8 +144,8 @@ def imprimirMultiplos3_1y100():
         multiplos.append(3*cont)
         cont += 1
         i += 1
-    print("\n\tLos múltiplos de 3 entre 1 y 100 son: " + str(myModule.imprimirArray(multiplos)))
-    myModule.pausar()
+    print("\n\tLos múltiplos de 3 entre 1 y 100 son: " + str(listas.imprimirLista(multiplos)))
+    varios.pausar()
 
 #Ejercicio 8
 def sumaMultiplos5_1y100():
@@ -165,7 +164,7 @@ def sumaMultiplos5_1y100():
         suma += multiplos[i]
         i -= 1
     print("\n\tLa suma de los múltiplos de 5 entre 1 y 100 es: " + str(suma))
-    myModule.pausar()
+    varios.pausar()
 
 #Ejercicio 9
 def sumaPares_1y1000():
@@ -184,7 +183,7 @@ def sumaPares_1y1000():
         suma += pares[i]
         i -= 1
     print("\n\tLa suma de los pares entre 1 y 100 es: " + str(suma))
-    myModule.pausar()
+    varios.pausar()
 
 #Ejercicio 10
 def sumaNumerosTeclado():
@@ -196,7 +195,7 @@ def sumaNumerosTeclado():
             numero2 = int(input("\n\tIntroduce el segundo número: "))
         except ValueError:
             print("\n\tError: introduce un número.")
-            myModule.pausar()
+            varios.pausar()
             continue
         else:
             aux = numero1
@@ -205,7 +204,7 @@ def sumaNumerosTeclado():
                 suma += aux
                 aux += 1
             print("\n\tLa suma de todos los numeros entre " + str(numero1) + " y " + str(numero2) + " es " + str(suma))
-            myModule.pausar()
+            varios.pausar()
             return
 
 #Ejercicio 11
@@ -217,14 +216,14 @@ def calcularParImparBucles():
             numero = int(input("\n\tIntroduce un número: "))
         except ValueError:
             print("Error: introduce un número.")
-            myModule.pausar()
+            varios.pausar()
             continue
         else:
-            if myModule.esPar(numero):
+            if operaciones.esPar(numero):
                 print("\n\tEl número es par.")
             else:
                 print("\n\tEl número es impar.")
-            myModule.pausar()
+            varios.pausar()
             return
 
 #Ejercicio 12
@@ -237,12 +236,12 @@ def potenciaBucles():
             exp = int(input("\n\tIntroduce un exponente: "))
         except ValueError:
             print("\n\tError: introduce números enteros.")
-            myModule.pausar()
+            varios.pausar()
             continue
         else:
-            resultado = myModule.calcularPotenciaBucles(numero, exp)
+            resultado = operaciones.calcularPotenciaBucles(numero, exp)
             print("\n\t" + str(numero) + " elevado a " + str(exp) + " es " + str(resultado))
-            myModule.pausar()
+            varios.pausar()
             return
 
 #Ejercicio 13
@@ -260,7 +259,7 @@ def sumarNumeros():
                     break
         except ValueError:
             print("\n\tError: introduce números enteros.")
-            myModule.pausar()
+            varios.pausar()
             continue
         else:
             suma = 0
@@ -268,7 +267,7 @@ def sumarNumeros():
                 suma += numeros[i]
                 i += 1
             print("\n\tLa suma de todos los números es " + str(suma))
-            myModule.pausar()
+            varios.pausar()
             return
 
 #Ejercicio 14
@@ -286,7 +285,7 @@ def mediaNumeros():
                     break
         except ValueError:
             print("\n\tError: introduce números enteros.")
-            myModule.pausar()
+            varios.pausar()
             continue
         else:
             suma = 0
@@ -295,7 +294,7 @@ def mediaNumeros():
                 i += 1
             media = suma / len(numeros)
             print("\n\tLa media de todos los números es " + str(media))
-            myModule.pausar()
+            varios.pausar()
             return
 
 #Ejercicio 15
@@ -313,24 +312,25 @@ def minimoMaximoNumeros():
                     break
         except ValueError:
             print("\n\tError: introduce números enteros.")
-            myModule.pausar()
+            varios.pausar()
             continue
         else:
-            resultado = myModule.ordenarMayorMenor(numeros)
+            resultado = operaciones.ordenarMayorMenor(numeros)
             print("\n\tEl mínimo es " + str(resultado[len(numeros)-1]) + " y el máximo es " + str(resultado[0]))
-            myModule.pausar()
+            varios.pausar()
             return
 
 #Ejercicio 16
 def divisionRestasSucesivas():
     while True:
         try:
+            os.system("cls")
             print("16. Calcular la división de dos números mediante restas sucesivas.")
             dividendo = int(input("\n\tIntroduce el dividendo: "))
             divisor = int(input("\n\tIntroduce el divisor: "))
         except ValueError:
             print("\n\tError: introduce números enteros.")
-            myModule.pausar()
+            varios.pausar()
             continue
         else:
             if dividendo == 0 and divisor != 0:
@@ -338,15 +338,16 @@ def divisionRestasSucesivas():
             elif dividendo < divisor:
                 print("\n\tLa operación no se puede realizar, el dividendo es menor que el divisor.")
             else:
-                resultado = myModule.divisionRestasSucesivas(dividendo, divisor)
+                resultado = operaciones.divisionRestasSucesivas(dividendo, divisor)
                 print("\n\t" + str(dividendo) + " entre " + str(divisor) + " es " + str(resultado[0]) + ", y el resto es " + str(resultado[1]))
-            myModule.pausar()
+            varios.pausar()
             return
 
 #Ejercicio 17
 def contarNegativosPositivos():
     while True:
         try:
+            os.system("cls")
             print("17. Introducir número por teclado, contar positivos y negativos hasta introducir cero, y mostrar resultado.")
             numeros = []
             while True:
@@ -357,7 +358,7 @@ def contarNegativosPositivos():
                     break
         except ValueError:
             print("\n\tError: introduce números enteros.")
-            myModule.pausar()
+            varios.pausar()
             continue
         else:
             i = 0
@@ -369,7 +370,7 @@ def contarNegativosPositivos():
                 elif numeros[i] > 0:
                     positivos += 1
             print("\n\tSe han introducido " + str(positivos) + " números positivos y " + str(negativos) + " números negativos.")
-            myModule.pausar()
+            varios.pausar()
             return
 
 #Ejercicio 18
@@ -382,7 +383,7 @@ def rangoCuadrados():
             numero2 = int(input("\n\tIntroduce el segundo número: "))
         except ValueError:
             print("\n\tError: introduce un número.")
-            myModule.pausar()
+            varios.pausar()
             continue
         else:
             i = 0
@@ -390,8 +391,8 @@ def rangoCuadrados():
             while numero2 >= numero1:
                 cuadrados.append(numero2*numero2)
                 numero2 -= 1
-            print("\n\tLos cuadrados de los números son " + str(cuadrados))
-            myModule.pausar()
+            print("\n\tLos cuadrados de los números son " + str(listas.imprimirLista(cuadrados)))
+            varios.pausar()
             return
 
 #Ejercicio 19
@@ -404,12 +405,12 @@ def multiplicarSumasSucesivas():
             factor2 = int(input("\n\tIntroduce el segundo factor: "))
         except ValueError:
             print("\n\tError: introduce números enteros.")
-            myModule.pausar()
+            varios.pausar()
             continue
         else:
-            resultado = myModule.multiplicacionSumasSucesivas(factor1, factor2)
+            resultado = operaciones.multiplicacionSumasSucesivas(factor1, factor2)
             print("\n\t" + str(factor1) + " por " + str(factor2) + " es " + str(resultado))
-            myModule.pausar()
+            varios.pausar()
             return
 
 #Ejercicio 20
@@ -426,8 +427,8 @@ def imprimir5_1y20():
     
     #se convierte la latriz en cadea y se imprime 5 veces.
     for i in range(1, 6):
-        print(myModule.imprimirArray(numeros))
-    myModule.pausar()
+        print(listas.imprimirLista(numeros))
+    varios.pausar()
     return
 
 #Ejercicio 21
@@ -442,15 +443,15 @@ def comprobarPrimo():
                 continue
         except ValueError:
             print("\n\tError: introduce un número.")
-            myModule.pausar()
+            varios.pausar()
             continue
         else:
-            primo = myModule.esPrimo(numero)
+            primo = operaciones.esPrimo(numero)
             if primo:
                 print("\n\tEl número es primo.")
             else:
                 print("\n\tEl número no es primo.")
-            myModule.pausar()
+            varios.pausar()
             return
 
 #Ejercicio 22
@@ -465,13 +466,13 @@ def tablaMultiplicar():
                 continue
         except ValueError:
             print("\n\tError: introduce un número.")
-            myModule.pausar()
+            varios.pausar()
             continue
         else:
             i = 0
             for i in range (0, 11):
                 print("\t" + str(numero) + " x " + str(i) + " = " + str(numero*i))
-            myModule.pausar()
+            varios.pausar()
             return
 
 #Ejercicio 23
@@ -487,13 +488,13 @@ def imprimirFrase():
                 continue
         except ValueError:
             print("\n\tError: introduce un número.")
-            myModule.pausar()
+            varios.pausar()
             continue
         else:
             while numero > 0:
                 print("\n\t" + frase)
                 numero -= 1
-            myModule.pausar()
+            varios.pausar()
             return
 
 #Ejercicio 24
@@ -505,15 +506,16 @@ def factorial():
             numero = int(input("\n\tIntroduce un número: "))
             if numero < 0:
                 print("\n\tError: introduce un número mayor o igual a cero.")
+                varios.pausar()
                 continue
         except ValueError:
             print("\n\tError: introduce un número.")
-            myModule.pausar()
+            varios.pausar()
             continue
         else:
-            factorial = myModule.factorial(numero)
+            factorial = operaciones.factorial(numero)
             print("\n\tEl factorial de " + str(numero) + " es " + str(factorial))
-            myModule.pausar()
+            varios.pausar()
             return
 
 #Ejercicio 25
@@ -528,7 +530,7 @@ def imprimirPrecios():
             precio = int(input("\n\tIntroduce un precio: "))
         except ValueError:
             print("\n\tError: introduce un número.")
-            myModule.pausar()
+            varios.pausar()
             continue
         else:
             unidades = 1
@@ -545,7 +547,7 @@ def imprimirPrecios():
                 if unidades in range(51, 101):
                     print("\n\t" + str(unidades) + " unidades: " + str(precio*unidades-(precio*unidades*0.2)) + " euros.")
                     unidades += 1
-            myModule.pausar()
+            varios.pausar()
             return
 
 #Ejercicio 26
@@ -558,15 +560,17 @@ def comprobarMultiplo():
             numero2 = int(input("\n\tIntroduce el segundo número: "))
         except ValueError:
             print("\n\tError: introduce números enteros.")
-            myModule.pausar()
+            varios.pausar()
             continue
         else:
-            resultado = myModule.esMultiplo(numero1, numero2)
+            resultado = operaciones.esMultiplo(numero1, numero2)
             if resultado == []:
-                print("\n\tAmbos números son iguales.")
+                print("\n\tNingún múmero es multiplo del otro.")
+                varios.pausar()
+                return
             else:
                 print("\n\t" + str(resultado[0]) + " es múltiplo de " + str(resultado[1]))
-                myModule.pausar()
+                varios.pausar()
                 return
 
 def main():
@@ -574,7 +578,7 @@ def main():
         os.system("cls")
         print("Relación de problemas de Python. Estructuras de control.")
         print("--------------------------------------------------------\n")
-        menu = [
+        menu_items = [
             "0. Salir.",
             "1. Comprobar si un número esta entre 1 y 10.",
             "2. Comprobar si un número es positivo o negativo.",
@@ -603,16 +607,16 @@ def main():
             "25. A partir de un precio de producto, imprimir precios de unidades con descuento.",
             "26. Calcular si un número es múltiplo de otro."
         ]
-        menuModule.imprimirMenu(menu)
+        menu.imprimirMenu(menu_items)
         try:
             opcion = int(input("\nSelecciona una opción: "))
             if opcion not in range (0,28):
                 print("Error: introduce un numero entre 1 y 27.")
-                myModule.pausar()
+                varios.pausar()
                 continue
         except ValueError:
             print("\tError: Introduce un numero.")
-            myModule.pausar()
+            varios.pausar()
         else:
             if opcion == 0:
                 os.system("cls")
@@ -669,6 +673,5 @@ def main():
                 imprimirPrecios()
             elif opcion == 26:
                 comprobarMultiplo()
-
 if __name__ == "__main__":
     main()

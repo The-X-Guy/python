@@ -1,7 +1,8 @@
-import os, sys
-from modules import menuModule
-from modules import myModule
-import math
+# Ejercicio de Python. Números PI y Euler. Ecuación de segundo grado.
+# Alumno: Fran Gálvez. 2º ASIR.
+
+import os, sys, math
+from modules import menu, operaciones, varios
 
 def eulerLeibniz():
     os.system("cls")
@@ -13,9 +14,9 @@ def eulerLeibniz():
         e = (1 + 1/cont)**cont
         cont += 1
     print("\n\tEl valor aproximado del número e es " + str(e) + ".")
-    myModule.pausar()
+    varios.pausar()
 
-# Este ejercicio me da un resultado que parece sererróneo. 
+# Este ejercicio me da un resultado que parece ser erróneo. 
 # He aplicado la fórmula proporcionada en clase.
 def eulerFactorial():
     os.system("cls")
@@ -24,10 +25,10 @@ def eulerFactorial():
     cont = 1
     e = 0
     while cont <= 10:
-        e += 1 / myModule.factorial(cont)
+        e += 1 / operaciones.factorial(cont)
         cont += 1
     print("\n\tEl valor aproximado del número e es " + str(e) + ".")
-    myModule.pausar()
+    varios.pausar()
 
 def piSumatorio():
     os.system("cls")
@@ -39,7 +40,7 @@ def piSumatorio():
         pi += ((-1)**cont)/(2 * cont + 1)
         cont += 1
     print("\n\tEl valor aproximado del número Pi es " + str(4*pi) + ".")
-    myModule.pausar()
+    varios.pausar()
 
 def ecuacionSegundoGrado():
     while True:
@@ -68,7 +69,7 @@ def ecuacionSegundoGrado():
                 x1 = (-b + math.sqrt(discriminante))/(2*a)
                 x2 = (-b - math.sqrt(discriminante))/(2*a)
                 print("\n\tLa ecuación " + ecuacion + " tiene dos soluciones: \n\t\tx1 = " + str(x1) + "\n\t\tx2 = " + str(x2))
-            myModule.pausar()
+            varios.pausar()
             return
 
 
@@ -78,17 +79,18 @@ def main():
             os.system("cls")
             print("Ejercicios de Python. Números Pi y Euler.")
             print("-----------------------------------------\n")
-            menu = [
+            menu_items = [
                 "0. Salir.",
                 "1. Calcular el número e mediante las series de Leibniz.",
                 "2. Calcular el número e mediante factoriales.",
                 "3. Calcular el número Pi.",
                 "4. Calcular ecuación segundo grado."
             ]
-            menuModule.imprimirMenu(menu)
+            menu.imprimirMenu(menu_items)
             opcion = int(input("\n\tEscoge una opción: "))
         except ValueError:
             print("\n\tError: introduce un número.")
+            varios.pausar()
         else:
             if opcion not in range(0, 5):
                 print("\n\tError: introduce un número entre 0 y 3.")

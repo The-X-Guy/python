@@ -22,7 +22,7 @@ def sumarNumeros():
             print("\nError: introduce un número entero.")
             varios.pausar()
         else:
-            suma = 0;
+            suma = 0
             for i in range (0, 5):
                 suma+= numeros[i]
             print("\n\tLa suma de los cinco números es " + str(suma))
